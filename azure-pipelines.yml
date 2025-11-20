@@ -2,7 +2,7 @@ trigger:
     - master
                             
 pool:
-    vmImage: selfhosted
+    name: selfhosted
                             
 variables:
     - group: Blackduck
