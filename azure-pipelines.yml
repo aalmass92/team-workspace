@@ -9,13 +9,13 @@ variables:
                             
 steps:
     - task: BlackDuckSecurityScan@2
-        displayName: 'Black Duck Scan'
-        ### Configuration to set specific detect environment variables
-        env:
-            DETECT_PROJECT_NAME: $(Build.Repository.Name)
-        inputs:
-            BLACKDUCKSCA_URL: $(BLACKDUCK_URL)
-            BLACKDUCKSCA_TOKEN: $(BLACKDUCK_TOKEN)
+      displayName: 'Black Duck Scan'
+      ### Configuration to set specific detect environment variables
+      env:
+          DETECT_PROJECT_NAME: $(Build.Repository.Name)
+      inputs:
+          BLACKDUCKSCA_URL: $(BLACKDUCKSCA_URL)
+          BLACKDUCKSCA_TOKEN: $(BLACKDUCKSCA_TOKEN)
                             
             ### Mandatory when BLACKDUCKSCA_PRCOMMENT_ENABLED or BLACKDUCKSCA_FIXPR_ENABLED is set true
             # AZURE_TOKEN: $(System.AccessToken)
