@@ -1,0 +1,35 @@
+trigger:
+    - master
+                            
+pool:
+    vmImage: ubuntu-latest
+                            
+variables:
+    - group: Blackduck
+                            
+steps:
+    - task: BlackDuckSecurityScan@2
+        displayName: 'Black Duck Scan'
+        ### Configuration to set specific detect environment variables
+        env:
+            DETECT_PROJECT_NAME: $(Build.Repository.Name)
+        inputs:
+            BLACKDUCKSCA_URL: $(BLACKDUCK_URL)
+            BLACKDUCKSCA_TOKEN: $(BLACKDUCK_TOKEN)
+                            
+            ### Mandatory when BLACKDUCKSCA_PRCOMMENT_ENABLED or BLACKDUCKSCA_FIXPR_ENABLED is set true
+            # AZURE_TOKEN: $(System.AccessToken)
+                            
+            ### Pull Request Comments
+            # BLACKDUCKSCA_PRCOMMENT_ENABLED: true
+                            
+            ### Fix Pull Request creation
+            # BLACKDUCKSCA_FIXPR_ENABLED: true
+                            
+            ### SARIF report generation 
+            # BLACKDUCKSCA_REPORTS_SARIF_CREATE: true
+                            
+            ### Uncomment below to upload to Advanced security  
+    #- task: AdvancedSecurity-Publish@1
+    #   inputs:
+    #     SarifsInputDirectory: '.bridge/Blackduck SCA SARIF Generator'
