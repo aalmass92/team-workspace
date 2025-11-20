@@ -16,7 +16,7 @@ steps:
       inputs:
           BLACKDUCKSCA_URL: $(BLACKDUCKSCA_URL)
           BLACKDUCKSCA_TOKEN: $(BLACKDUCKSCA_TOKEN)
-                            
+          NETWORK_SSL_TRUSTALL: true                  
             ### Mandatory when BLACKDUCKSCA_PRCOMMENT_ENABLED or BLACKDUCKSCA_FIXPR_ENABLED is set true
             # AZURE_TOKEN: $(System.AccessToken)
                             
